@@ -68,7 +68,7 @@ describe('AccessEntry', () => {
     'creates a new AccessEntry for AccessEntryType %s',
     (accessEntryType) => {
       // Determine if this type should have access policies
-      const restrictedTypes = [AccessEntryType.EC2, AccessEntryType.HYBRID_LINUX, AccessEntryType.HYPERPOD_LINUX];
+      const restrictedTypes = [AccessEntryType.HYBRID_LINUX, AccessEntryType.HYPERPOD_LINUX];
       const accessPolicies = restrictedTypes.includes(accessEntryType) ? [] : mockAccessPolicies;
 
       // WHEN
@@ -158,7 +158,7 @@ describe('AccessEntry', () => {
   });
 
   describe('validation', () => {
-    test.each([AccessEntryType.EC2, AccessEntryType.HYBRID_LINUX, AccessEntryType.HYPERPOD_LINUX])(
+    test.each([AccessEntryType.HYBRID_LINUX, AccessEntryType.HYPERPOD_LINUX])(
       'throws error when %s type has access policies',
       (accessEntryType) => {
         // WHEN & THEN
@@ -214,7 +214,7 @@ describe('AccessEntry', () => {
       },
     );
 
-    test.each([AccessEntryType.EC2, AccessEntryType.HYBRID_LINUX, AccessEntryType.HYPERPOD_LINUX])(
+    test.each([AccessEntryType.HYBRID_LINUX, AccessEntryType.HYPERPOD_LINUX])(
       'throws error when adding policies to %s type via addAccessPolicies()',
       (accessEntryType) => {
         // GIVEN
